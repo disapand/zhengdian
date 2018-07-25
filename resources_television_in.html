@@ -54,7 +54,7 @@
 
 		<!-- page wrapper start -->
 		<!-- ================ -->
-		<div class="page-wrapper">
+		<div class="page-wrapper" id="app">
 
 			<!-- header start (remove fixed class from header in order to disable fixed navigation mode) -->
 			<!-- ================ --> 
@@ -173,7 +173,7 @@
 
 							<!-- page-title start -->
 							<!-- ================ -->
-							<h1 class="page-title margin-top-clear">俄罗斯-Первый канал(第一频道)</h1>
+							<h1 class="page-title margin-top-clear">{{ tv.channel }}</h1>
 							<!-- page-title end -->
 
 							<div class="row">
@@ -187,7 +187,11 @@
 									<div class="tab-content clear-style">
 										<div class="tab-pane active" id="product-images">
 											<div class="owl-carousel content-slider-with-controls-bottom">
-												<div class="overlay-container">
+												<div class="overlay-container" v-for="img in tv.televisionResourcesImgs.data">
+													<img src="img.url" alt="俄罗斯-Первый канал(第一频道)">
+													<a href="images/television/2.jpg" class="popup-img overlay" title="俄罗斯-Первый канал(第一频道)"><i class="fa fa-search-plus"></i></a>
+												</div>
+												<!-- <div class="overlay-container">
 													<img src="images/television/2.jpg" alt="俄罗斯-Первый канал(第一频道)">
 													<a href="images/television/2.jpg" class="popup-img overlay" title="俄罗斯-Первый канал(第一频道)"><i class="fa fa-search-plus"></i></a>
 												</div>
@@ -202,7 +206,7 @@
 												<div class="overlay-container">
 													<img src="images/television/2-3.jpg" alt="Поле чудес（神奇之地）-智力游戏节目">
 													<a href="images/television/2-3.jpg" class="popup-img overlay" title="Поле чудес（神奇之地）-智力游戏节目"><i class="fa fa-search-plus"></i></a>
-												</div>
+												</div> -->
 											</div>
 											<div class="col-md-12" style="padding: 0;">
 												<a class="btn btn-default" href="contact.html">联系我们</a>
@@ -225,12 +229,13 @@
 												<div class="tab-content padding-top-clear padding-bottom-clear">
 													<div class="tab-pane fade in active" id="h2tab1">
 														<p style="line-height: 32px;margin-top: 32px;">
-														频道介绍：Первый канал 主要针对中等收入成年人。<br>
-														 核心目标受众是35-40岁的观众。<br>
+														<!-- 频道介绍：Первый канал 主要针对中等收入成年人。<br>
+														 核心目标受众是35-40岁的观众。
 														 观看该频道的女性比男性多。<br>
 														 第一受众群体是家庭，这是推广“家居”商品的绝佳平台。<br>
 														 该频道不断致力于丰富节目类型，因此其受众也在逐年增长，吸引了新的受众群体，例如青少年。<br>
-														 第一频道的最大优点是其规模，该频道的播出覆盖面达到俄罗斯领土的99.4%。
+														 第一频道的最大优点是其规模，该频道的播出覆盖面达到俄罗斯领土的99.4%。 -->
+														 {{ tv.detail }}
 														</p>
 													</div>
 												</div>
@@ -390,6 +395,33 @@
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/axios.js"></script>
 
 	</body>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				tv: '',
+			},
+			methods: {
+				
+			},
+			created() {
+				let reg = new RegExp("(^|&)tv=([^&]*)(&|$)");
+				let r = window.location.search.substr(1).match(reg);
+				let tv 
+				if ( r != null ) {
+					tv = unescape(r[2])
+				}
+				axios.get('http://iview-laravel.test/api/tv/' + tv +'?include=televisionResourcesImgs').then(function(response){
+					app.tv = response.data
+					console.log(app.tv)
+				}).catch((error) => {
+					alert('失败了')
+				})
+			},
+		})
+	</script>
 </html>
