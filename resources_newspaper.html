@@ -324,14 +324,14 @@
 								<div class="listing-item">
 									<div class="overlay-container" v-for="(img, index) in newspaper.newspaperResourceImgs.data" :key="index">
 										<img :src="img.url" v-bind:alt="newspaper.name" v-if="index == 0">
-										<a href="resources_newspaper_4.html" class="overlay small">
+										<a :href="'resources_newspaper_4.html?newspaper=' + newspaper.id" class="overlay small">
 											<i class="fa fa-plus"></i>
 											<span>了解详情</span>
 										</a>
 									</div>
 									<div class="listing-item-body clearfix">
 										<h3 class="title">
-											<a href="resources_newspaper_4.html">{{newspaper.name}}</a>
+											<a :href="'resources_newspaper_4.html?newspaper=' + newspaper.id">{{newspaper.name}}</a>
 										</h3>
 									</div>
 								</div>
@@ -342,32 +342,7 @@
 						<div class="clearfix"></div>
 
 						<!-- pagination start -->
-						<ul class="pagination">
-							<li>
-								<a href="#">
-									<<</a>
-							</li>
-							<li class="active">
-								<a href="#">1
-									<span class="sr-only">(current)</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">>></a>
-							</li>
-						</ul>
+						<page :total="total" :current="currentPage" :page-size="pageSize" v-if="cansee" @on-change="changePage"></page>
 						<!-- pagination end -->
 
 					</div>
@@ -487,11 +462,23 @@
 							app.cansee = false
 						}
 					}).catch((error) => {
-						console.log('户外资源加载出错', error)
+						console.log('纸媒资源加载出错', error)
 					})
 			},
 			methods: {
-
+				changePage(page) {
+					axios.get('http://iview-laravel.test/api/newspaper?include=newspaperResourceImgs&page=' + page)
+						.then((response) => {
+							app.newspapers = response.data.data
+							app.total = response.data.meta.pagination.total
+							app.currentPage = response.data.meta.pagination.current_page
+							if (response.data.meta.pagination.total_pages == 1) {
+								app.cansee = false
+							}
+						}).catch((error) => {
+							console.log('纸媒资源换页出错', error)
+						})
+				}
 			},
 		})
 	</script>
