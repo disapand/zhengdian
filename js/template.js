@@ -7,8 +7,8 @@
  * License URI:http://wrapbootstrap.com
  * File Description: Initializations of plugins 
  */
-(function($){
-	$(document).ready(function(){
+// (function($){
+// 	$(document).ready(function(){
 
 		//Show dropdown on hover only for desktop devices
 		//-----------------------------------------------
@@ -423,26 +423,26 @@
 
 		// Magnific popup
 		//-----------------------------------------------
-		if (($(".popup-img").length > 0) || ($(".popup-iframe").length > 0) || ($(".popup-img-single").length > 0)) { 		
-			$(".popup-img").magnificPopup({
-				type:"image",
-				gallery: {
-					enabled: true,
-				}
-			});
-			$(".popup-img-single").magnificPopup({
-				type:"image",
-				gallery: {
-					enabled: false,
-				}
-			});
-			$('.popup-iframe').magnificPopup({
-				disableOn: 700,
-				type: 'iframe',
-				preloader: false,
-				fixedContentPos: false
-			});
-		};		
+		// if (($(".popup-img").length > 0) || ($(".popup-iframe").length > 0) || ($(".popup-img-single").length > 0)) { 		
+		// 	$(".popup-img").magnificPopup({
+		// 		type:"image",
+		// 		gallery: {
+		// 			enabled: true,
+		// 		}
+		// 	});
+		// 	$(".popup-img-single").magnificPopup({
+		// 		type:"image",
+		// 		gallery: {
+		// 			enabled: false,
+		// 		}
+		// 	});
+		// 	$('.popup-iframe').magnificPopup({
+		// 		disableOn: 700,
+		// 		type: 'iframe',
+		// 		preloader: false,
+		// 		fixedContentPos: false
+		// 	});
+		// };		
 
 		// Fixed header
 		//-----------------------------------------------
@@ -992,6 +992,6 @@
 			}
 		});
 
-	}); // End document ready
+// 	}); // End document ready
 
-})(this.jQuery);
+// })(this.jQuery);

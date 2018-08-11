@@ -246,34 +246,10 @@
 										<div class="owl-carousel content-slider-with-controls-bottom">
 											<div class="overlay-container" v-for="img in imgList">
 												<img v-bind:src="img.url" v-bind:alt="tv.channel">
-												<a :href="img.url" class="popup-img overlay" :title="tv.channel">
+												<a :href="img.url" class="popup-img overlay" :title="tv.detail">
 													<i class="fa fa-search-plus"></i>
 												</a>
 											</div>
-											<!-- <div class="overlay-container">
-												<img src="http://iview-laravel.test/uploads/images/television/201807/22/t_1532252667_GB7Sn0ypCo.png" alt="俄罗斯-Первый канал(第一频道)">
-												<a href="http://iview-laravel.test/uploads/images/television/201807/22/t_1532252667_GB7Sn0ypCo.png" class="popup-img overlay" title="俄罗斯-Первый канал(第一频道)">
-													<i class="fa fa-search-plus"></i>
-												</a>
-											</div>
-											<div class="overlay-container">
-												<img src="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512633_tzNnD29CMt.png" alt="Лучше всех!（我是最优秀的）-少儿选秀节目">
-												<a href="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512633_tzNnD29CMt.png" class="popup-img overlay" title="Лучше всех!（我是最优秀的）-少儿选秀节目">
-													<i class="fa fa-search-plus"></i>
-												</a>
-											</div>
-											<div class="overlay-container">
-												<img src="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512633_eMfUgKivSR.png" alt="Пусть говорят（畅所欲言）-娱乐八卦节目">
-												<a href="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512633_eMfUgKivSR.png" class="popup-img overlay" title="Пусть говорят（畅所欲言）-娱乐八卦节目">
-													<i class="fa fa-search-plus"></i>
-												</a>
-											</div>
-											<div class="overlay-container">
-												<img src="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512634_9XCFekVSoj.png" alt="Поле чудес（神奇之地）-智力游戏节目">
-												<a href="http://iview-laravel.test/uploads/images/television/201807/25/t_1532512634_9XCFekVSoj.png" class="popup-img overlay" title="Поле чудес（神奇之地）-智力游戏节目">
-													<i class="fa fa-search-plus"></i>
-												</a>
-											</div> -->
 										</div>
 										<div class="col-md-12" style="padding: 0;">
 											<a class="btn btn-default" href="contact.html">联系我们</a>
@@ -335,7 +311,7 @@
 						<div class="row grid-space-20">
 							<div class="col-md-3 col-sm-6" v-for=" recommend in recommends ">
 								<div class="listing-item">
-									<div class="overlay-container"  v-for="(img, key) in recommend.televisionResourcesImgs.data">
+									<div class="overlay-container" v-for="(img, key) in recommend.televisionResourcesImgs.data">
 										<img :src="img.url" :alt="recommend.channel" v-if="key == 0">
 										<a :href="'resources_television_in.html?tv=' + recommend.id" class="overlay small">
 											<i class="fa fa-plus"></i>
@@ -398,195 +374,225 @@
 								</div>
 							</div>
 						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- section end -->
+			<!-- section end -->
 
-		<!-- .footer start -->
-		<!-- ================ -->
-		<footer id="footer">
-			<!-- .subfooter start -->
+			<!-- .footer start -->
 			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<nav class="navbar navbar-default" role="navigation">
-							<!-- Toggle get grouped for better mobile display -->
-							<div class="col-md-6" id="navbar-collapse-2">
-								<p>Copyright © 2010-2015 zenith100.com 正点国际传媒 版权所有 Power by 虫鸣科技 京ICP备17065992号-1</p>
-							</div>
-							<div class="collapse navbar-collapse " style="position: absolute;right: 0;bottom: -20px;">
-								<ul class="social-links circle">
-									<li class="twitter">
-										<a target="_blank" href="#">
-											<i class="fa fa-weixin"></i>
-										</a>
-									</li>
-									<li class="googleplus">
-										<a target="_blank" href="#">
-											<i class="fa fa-weibo"></i>
-										</a>
-									</li>
-									<li class="facebook">
-										<a target="_blank" href="#">
-											<i class="fa fa-facebook"></i>
-										</a>
-									</li>
-									<li class="linkedin">
-										<a target="_blank" href="#">
-											<i class="fa fa-linkedin"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
+			<footer id="footer">
+				<!-- .subfooter start -->
+				<!-- ================ -->
+				<div class="subfooter">
+					<div class="container">
+						<div class="row">
+							<nav class="navbar navbar-default" role="navigation">
+								<!-- Toggle get grouped for better mobile display -->
+								<div class="col-md-6" id="navbar-collapse-2">
+									<p>Copyright © 2010-2015 zenith100.com 正点国际传媒 版权所有 Power by 虫鸣科技 京ICP备17065992号-1</p>
+								</div>
+								<div class="collapse navbar-collapse " style="position: absolute;right: 0;bottom: -20px;">
+									<ul class="social-links circle">
+										<li class="twitter">
+											<a target="_blank" href="#">
+												<i class="fa fa-weixin"></i>
+											</a>
+										</li>
+										<li class="googleplus">
+											<a target="_blank" href="#">
+												<i class="fa fa-weibo"></i>
+											</a>
+										</li>
+										<li class="facebook">
+											<a target="_blank" href="#">
+												<i class="fa fa-facebook"></i>
+											</a>
+										</li>
+										<li class="linkedin">
+											<a target="_blank" href="#">
+												<i class="fa fa-linkedin"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</nav>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- .subfooter end -->
-		</footer>
-		<!-- .footer end -->
-	</div>
-	<!-- page-wrapper end -->
+				<!-- .subfooter end -->
+			</footer>
+			<!-- .footer end -->
+		</div>
+		<!-- page-wrapper end -->
 
-	<!-- JavaScript files placed at the end of the document so the pages load faster
+		<!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
-	<!-- Jquery and Bootstap core js files -->
-	<script src="js/vue.js"></script>
-	<script src="js/axios.js"></script>
-	<script type="text/javascript" src="plugins/jquery.min.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Modernizr javascript -->
-	<script type="text/javascript" src="plugins/modernizr.js"></script>
-
-	<!-- Isotope javascript -->
-	<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-
-	<!-- Magnific Popup javascript -->
-	<script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-	<!-- Appear javascript -->
-	<script type="text/javascript" src="plugins/jquery.appear.js"></script>
-
-	<!-- Sharrre javascript -->
-	<script type="text/javascript" src="plugins/jquery.sharrre.js"></script>
-
-	<!-- Count To javascript -->
-	<script type="text/javascript" src="plugins/jquery.countTo.js"></script>
-
-	<!-- Parallax javascript -->
-	<script src="plugins/jquery.parallax-1.1.3.js"></script>
-
-	<!-- Contact form -->
-	<script src="plugins/jquery.validate.js"></script>
-
-	<!-- Initialization of Plugins -->
-	<script type="text/javascript" src="js/template.js"></script>
-
-	<!-- Custom Scripts -->
-	<script type="text/javascript" src="js/custom.js"></script>
-
-	<!-- Owl carousel javascript -->
-	<script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
+		<!-- Jquery and Bootstap core js files -->
+		<script src="js/vue.js"></script>
+		<script src="js/axios.js"></script>
+		<script type="text/javascript" src="plugins/jquery.min.js"></script>
 
 </body>
 <script>
-	var app = new Vue({
-		el: '#app',
-		data: {
-			tv: '',
-			imgList: '',
-			recommends: '',
-		},
-		methods: {
-			stratCarousel() {
-				if ($('.owl-carousel').length > 0) {
-					$(".owl-carousel.carousel").owlCarousel({
-						items: 4,
-						pagination: false,
-						navigation: true,
-						navigationText: false
-					});
-					$(".owl-carousel.carousel-autoplay").owlCarousel({
-						items: 4,
-						autoPlay: 5000,
-						pagination: false,
-						navigation: true,
-						navigationText: false
-					});
-					$(".owl-carousel.clients").owlCarousel({
-						items: 8,
-						autoPlay: true,
-						pagination: false,
-						itemsDesktopSmall: [992, 5],
-						itemsTablet: [768, 4],
-						itemsMobile: [479, 3]
-					});
-					$(".owl-carousel.content-slider").owlCarousel({
-						singleItem: true,
-						autoPlay: 5000,
-						navigation: false,
-						navigationText: false,
-						pagination: false
-					});
-					$(".owl-carousel.content-slider-with-controls").owlCarousel({
-						singleItem: true,
-						autoPlay: false,
-						navigation: true,
-						navigationText: false,
-						pagination: true
-					});
-					$(".owl-carousel.content-slider-with-controls-autoplay").owlCarousel({
-						singleItem: true,
-						autoPlay: 5000,
-						navigation: true,
-						navigationText: false,
-						pagination: true
-					});
-					$(".owl-carousel.content-slider-with-controls-bottom").owlCarousel({
-						singleItem: true,
-						autoPlay: false,
-						navigation: true,
-						navigationText: false,
-						pagination: true
-					});
-				};
-			}
-		},
-		created() {
-			let reg = new RegExp("(^|&)tv=([^&]*)(&|$)");
-			let r = window.location.search.substr(1).match(reg);
-			let tv
-			if (r != null) {
-				tv = unescape(r[2])
-			}
-			axios.get('http://iview-laravel.test/api/tv/' + tv + '?include=televisionResourcesImgs').then(function (response) {
-				app.tv = response.data
-				app.tv.detail = app.tv.detail.replace(/\n|\r\n/g, '<br/>')
-				app.imgList = response.data.televisionResourcesImgs.data
-				console.log(response)
-				window.document.title = app.tv.channel
+	$(document).ready(function () {
+		var app = new Vue({
+			el: '#app',
+			data: {
+				tv: '',
+				imgList: '',
+				recommends: '',
+			},
+			methods: {
+				stratCarousel() {
+					//Owl carousel
+					//-----------------------------------------------
+					if ($('.owl-carousel').length > 0) {
+						$(".owl-carousel.carousel").owlCarousel({
+							items: 4,
+							pagination: false,
+							navigation: true,
+							navigationText: false
+						});
+						$(".owl-carousel.carousel-autoplay").owlCarousel({
+							items: 4,
+							autoPlay: 5000,
+							pagination: false,
+							navigation: true,
+							navigationText: false
+						});
+						$(".owl-carousel.clients").owlCarousel({
+							items: 8,
+							autoPlay: true,
+							pagination: false,
+							itemsDesktopSmall: [992, 5],
+							itemsTablet: [768, 4],
+							itemsMobile: [479, 3]
+						});
+						$(".owl-carousel.content-slider").owlCarousel({
+							singleItem: true,
+							autoPlay: 5000,
+							navigation: false,
+							navigationText: false,
+							pagination: false
+						});
+						$(".owl-carousel.content-slider-with-controls").owlCarousel({
+							singleItem: true,
+							autoPlay: false,
+							navigation: true,
+							navigationText: false,
+							pagination: true
+						});
+						$(".owl-carousel.content-slider-with-controls-autoplay").owlCarousel({
+							singleItem: true,
+							autoPlay: 5000,
+							navigation: true,
+							navigationText: false,
+							pagination: true
+						});
+						$(".owl-carousel.content-slider-with-controls-bottom").owlCarousel({
+							singleItem: true,
+							autoPlay: false,
+							navigation: true,
+							navigationText: false,
+							pagination: true
+						});
+					};
+				},
+				stratMagnific() {
+					// Magnific popup
+					//-----------------------------------------------
+					if (($(".popup-img").length > 0) || ($(".popup-iframe").length > 0) || ($(".popup-img-single").length > 0)) {
+						$(".popup-img").magnificPopup({
+							type: "image",
+							gallery: {
+								enabled: true,
+							}
+						});
+						$(".popup-img-single").magnificPopup({
+							type: "image",
+							gallery: {
+								enabled: false,
+							}
+						});
+						$('.popup-iframe').magnificPopup({
+							disableOn: 700,
+							type: 'iframe',
+							preloader: false,
+							fixedContentPos: false
+						});
+					};
+				}
+			},
+			created() {
+				let reg = new RegExp("(^|&)tv=([^&]*)(&|$)");
+				let r = window.location.search.substr(1).match(reg);
+				let tv
+				if (r != null) {
+					tv = unescape(r[2])
+				}
+				axios.get('http://iview-laravel.test/api/tv/' + tv + '?include=televisionResourcesImgs').then(function (response) {
+					app.tv = response.data
+					app.tv.detail = app.tv.detail.replace(/\n|\r\n/g, '<br/>')
+					app.imgList = response.data.televisionResourcesImgs.data
+					console.log(response)
+					window.document.title = app.tv.channel
 
-				// 增加一个1毫秒的延迟，保证数据完成加载
-				setTimeout(() => {
-					app.stratCarousel()
-				}, 0);
-			}).catch((error) => {
-				alert('失败了')
-			})
-			axios.get('http://iview-laravel.test/api/recommendTv?include=televisionResourcesImgs').then((response) => {
-				console.log('推荐', response)
-				app.recommends = response.data.data
-			}).catch((error) => {
-
-			})
-		},
-		mounted() {
-		},
+					setTimeout(() => {
+						app.stratCarousel()
+						app.stratMagnific()
+					}, 1);
+				}).catch((error) => {
+					alert('失败了')
+				})
+				axios.get('http://iview-laravel.test/api/recommendTv?include=televisionResourcesImgs').then((response) => {
+					console.log('推荐', response)
+					app.recommends = response.data.data
+				}).catch((error) => {
+					console.log('获取推荐信息失败', error);
+				})
+			},
+			mounted() {
+			},
+		})
 	})
+
 </script>
+
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="plugins/modernizr.js"></script>
+
+<!-- Isotope javascript -->
+<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Appear javascript -->
+<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+
+<!-- Sharrre javascript -->
+<script type="text/javascript" src="plugins/jquery.sharrre.js"></script>
+
+<!-- Count To javascript -->
+<script type="text/javascript" src="plugins/jquery.countTo.js"></script>
+
+<!-- Parallax javascript -->
+<script src="plugins/jquery.parallax-1.1.3.js"></script>
+
+<!-- Contact form -->
+<script src="plugins/jquery.validate.js"></script>
+
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="js/custom.js"></script>
+
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
 
 </html>
